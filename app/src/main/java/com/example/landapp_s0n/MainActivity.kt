@@ -1,5 +1,6 @@
 package com.example.landapp_s0n
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.landapp_s0n.adapters.RoomAdapter
@@ -27,6 +28,18 @@ class MainActivity : AppCompatActivity() {
 
         mRoomAdapter=RoomAdapter(this, R.layout.room_list_item, mRoomList)  //화면어딘지, 어떤 xml로 움직일거냐, 어떤 목록을 보여줄거냐
         roomListView.adapter=mRoomAdapter
+
+        //리스트뷰 이벤트처리. 리스트뷰의 각 줄 중에 무슨 줄을 클릭햇는지. 알아내서. 상세페이지로 들어가도록한다.
+        roomListView.setOnItemClickListener { parent, view, position, id ->
+
+            val clickedRoom = mRoomList[position]
+            val myIntent = Intent(this, ViewRoomDetailActivity::class.java) //여행티켓
+            //모든 데이터 한꺼번에 넘길때 data클래스에 Serializable 사용
+            myIntent.putExtra("room", clickedRoom)  //수하물첨부. (이름표, )
+            startActivity(myIntent)  //비행기탑승
+
+
+        }
 
     }
 }
