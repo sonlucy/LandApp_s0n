@@ -14,20 +14,24 @@
         android:theme="@style/Theme.Design.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".ViewRoomDetailActivity"
-            android:theme="@style/Theme.LandApp_s0n"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".SplashActivity"
+            android:exported="true" >
 
-            <intent-filter>  //이 태그를 가지는게 앱의 시작점이 되는 액티비티
+            <intent-filter>
+                //이 태그를 가지는게 앱의 시작점이 되는 액티비티
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity>
+        <activity
+            android:name=".ViewRoomDetailActivity"
+            android:exported="false"
+            android:theme="@style/Theme.LandApp_s0n" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
